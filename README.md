@@ -1,5 +1,21 @@
 # React-shop-cloudfront
 
+---
+
+## Links:
+
+Manual deployment:
+
+- [CloudFront](https://d10e8367me4yuu.cloudfront.net/)
+- [S3](https://a-reznikov-nodejs-aws-shop-react.s3.eu-central-1.amazonaws.com/index.html)
+
+Auto deployment:
+
+- [CloudFront](https://d2hmykvwqrzp71.cloudfront.net/)
+- [S3](https://alex-reznikov-web-app-bucket.s3.eu-central-1.amazonaws.com/)
+
+---
+
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
 
 - [Vite](https://vitejs.dev/) as a project bundler
