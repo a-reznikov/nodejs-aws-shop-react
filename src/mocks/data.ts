@@ -5,40 +5,46 @@ import { AvailableProduct, Product } from "~/models/Product";
 
 export const products: Product[] = [
   {
-    description: "Short Product Description1",
-    id: "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
-    price: 24,
-    title: "ProductOne",
+    description:
+      "A novel by George Orwell, depicting a dystopian future society.",
+    id: "1",
+    price: 12,
+    title: "1984",
   },
   {
-    description: "Short Product Description7",
-    id: "7567ec4b-b10c-48c5-9345-fc73c48a80a1",
+    description:
+      "A classic novel by Harper Lee, exploring racial injustice in the American South.",
+    id: "2",
+    price: 10,
+    title: "To Kill a Mockingbird",
+  },
+  {
+    description:
+      "A fantasy novel by J.R.R. Tolkien, the first part of The Lord of the Rings series.",
+    id: "3",
     price: 15,
-    title: "ProductTitle",
+    title: "The Fellowship of the Ring",
   },
   {
-    description: "Short Product Description2",
-    id: "7567ec4b-b10c-48c5-9345-fc73c48a80a3",
-    price: 23,
-    title: "Product",
+    description:
+      "A novel by F. Scott Fitzgerald, portraying the Jazz Age and the American Dream.",
+    id: "4",
+    price: 11,
+    title: "The Great Gatsby",
   },
   {
-    description: "Short Product Description4",
-    id: "7567ec4b-b10c-48c5-9345-fc73348a80a1",
-    price: 15,
-    title: "ProductTest",
+    description:
+      "A novel by J.D. Salinger, following the life of a disenchanted teenager.",
+    id: "5",
+    price: 9,
+    title: "The Catcher in the Rye",
   },
   {
-    description: "Short Product Descriptio1",
-    id: "7567ec4b-b10c-48c5-9445-fc73c48a80a2",
-    price: 23,
-    title: "Product2",
-  },
-  {
-    description: "Short Product Description7",
-    id: "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
-    price: 15,
-    title: "ProductName",
+    description:
+      "A novel by Jane Austen, exploring themes of love, class, and reputation.",
+    id: "6",
+    price: 8,
+    title: "Pride and Prejudice",
   },
 ];
 
@@ -49,19 +55,21 @@ export const availableProducts: AvailableProduct[] = products.map(
 export const cart: CartItem[] = [
   {
     product: {
-      description: "Short Product Description1",
-      id: "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
-      price: 24,
-      title: "ProductOne",
+      description:
+        "A classic novel by Harper Lee, exploring racial injustice in the American South.",
+      id: "2",
+      price: 10,
+      title: "To Kill a Mockingbird",
     },
     count: 2,
   },
   {
     product: {
-      description: "Short Product Description7",
-      id: "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
+      description:
+        "A fantasy novel by J.R.R. Tolkien, the first part of The Lord of the Rings series.",
+      id: "3",
       price: 15,
-      title: "ProductName",
+      title: "The Fellowship of the Ring",
     },
     count: 5,
   },
@@ -77,8 +85,8 @@ export const orders: Order[] = [
       comment: "",
     },
     items: [
-      { productId: "7567ec4b-b10c-48c5-9345-fc73c48a80aa", count: 2 },
-      { productId: "7567ec4b-b10c-45c5-9345-fc73c48a80a1", count: 5 },
+      { productId: "2", count: 2 },
+      { productId: "3", count: 5 },
     ],
     statusHistory: [
       { status: OrderStatus.Open, timestamp: Date.now(), comment: "New order" },
@@ -92,7 +100,7 @@ export const orders: Order[] = [
       lastName: "Doe",
       comment: "Ship fast!",
     },
-    items: [{ productId: "7567ec4b-b10c-48c5-9345-fc73c48a80aa", count: 3 }],
+    items: [{ productId: "3", count: 3 }],
     statusHistory: [
       {
         status: OrderStatus.Sent,
