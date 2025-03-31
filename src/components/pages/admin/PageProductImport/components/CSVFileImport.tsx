@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { toast } from "react-toastify";
 
 type CSVFileImportProps = {
   url: string;
@@ -31,22 +32,41 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
       return;
     }
 
-    const response = await axios({
-      method: "GET",
-      url,
-      params: {
-        name: encodeURIComponent(file.name),
-      },
-    });
-    console.log("File to upload: ", file.name);
-    console.log("Uploading to: ", response.data);
-    const result = await fetch(response.data, {
-      method: "PUT",
-      body: file,
-    });
-    console.log("Result: ", result);
+    try {
+      const response = await axios({
+        method: "GET",
+        url,
+        params: {
+          name: encodeURIComponent(file.name),
+        },
+        headers: {
+          Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
+        },
+      });
 
-    setFile(undefined);
+      console.log("File to upload: ", file.name);
+      console.log("Uploading to: ", response.data);
+      const result = await fetch(response.data, {
+        method: "PUT",
+        body: file,
+      });
+      console.log("Result: ", result);
+
+      setFile(undefined);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const status = error.response?.status;
+        if (status === 401) {
+          toast.error("Unauthorized: Authorization header is not provided");
+        } else if (status === 403) {
+          toast.error("Forbidden: Access has been denied");
+        } else {
+          toast.error("Something wrong");
+        }
+      } else {
+        toast.error("An unexpected error occurred during upload.");
+      }
+    }
   };
   return (
     <Box>
