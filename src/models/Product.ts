@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+import { DEFAULT_IMAGE } from "~/constants/constants";
 
 export const ProductSchema = Yup.object({
   id: Yup.string(),
@@ -9,6 +10,7 @@ export const ProductSchema = Yup.object({
 
 export const AvailableProductSchema = ProductSchema.shape({
   count: Yup.number().integer().min(0).required().defined().default(0),
+  image: Yup.string().notRequired().default(DEFAULT_IMAGE),
 });
 
 export type Product = Yup.InferType<typeof ProductSchema>;
