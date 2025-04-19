@@ -19,13 +19,13 @@ export default function Products() {
   return (
     <Grid container spacing={4}>
       {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
-      {data.map(({ count, ...product }, index) => (
+      {data.map(({ count, ...product }) => (
         <Grid item key={product.id} xs={12} sm={6} md={4}>
           <Card
             sx={{ height: "100%", display: "flex", flexDirection: "column" }}
           >
             <CardMedia
-              sx={{ pt: "56.25%" }}
+              sx={{ pt: "100%" }}
               image={product?.image || DEFAULT_IMAGE}
               title="Image title"
             />
